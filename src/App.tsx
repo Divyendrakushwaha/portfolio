@@ -36,7 +36,7 @@ const Portfolio = () => {
                 <span className="flex-grow">View GitHub Profile</span>
                 <ExternalLink size={16} />
               </a>
-              <a href="#" target="_blank"
+              <a href="https://leetcode.com/u/princekushwaha49/" target="_blank"
                 className="flex items-center gap-3 bg-white/10 hover:bg-white/20 p-4 rounded-lg transition-colors">
                 <Code2 size={24} />
                 <span className="flex-grow">LeetCode Profile</span>
