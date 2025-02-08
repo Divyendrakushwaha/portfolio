@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Code2, Mail, Phone, MapPin, ExternalLink, ChevronDown } from 'lucide-react';
 
-const Portfolio = () => {
+const App = () => {
   const [expandedExperience, setExpandedExperience] = useState(null);
   const [selectedProject, setSelectedProject] = useState(null);
   const experienceRef = useRef(null);
@@ -48,7 +48,65 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           className="mb-24"
         >
-          {/* Hero content */}
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+            <div className="flex-1">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Divyendra Kushwaha
+              </h1>
+              <h2 className="text-2xl font-light text-slate-400 mb-8">
+                Software Developer & Data Engineer
+              </h2>
+              <div className="flex flex-wrap gap-6 mb-8">
+                <a href="mailto:divyendra.kushwaha@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                  <Mail size={20} className="flex-shrink-0" />
+                  <span>divyendra.kushwaha@gmail.com</span>
+                </a>
+                <a href="tel:7906369497" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                  <Phone size={20} className="flex-shrink-0" />
+                  <span>7906369497</span>
+                </a>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <MapPin size={20} className="flex-shrink-0" />
+                  <span>Gurugram, India</span>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <a href="https://www.linkedin.com/in/divyendra/" target="_blank" 
+                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Divyendrakushwaha" target="_blank"
+                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
+                  <Github size={20} />
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <div className="w-full lg:w-auto lg:max-w-md space-y-4">
+              <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50">
+                <h3 className="text-lg font-semibold mb-4">Technical Highlights</h3>
+                <ul className="space-y-3 text-slate-300">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    AWS Cloud Architecture
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    Large Language Models (LLMs)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    Big Data Processing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    Machine Learning Systems
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </motion.section>
 
         {/* Interactive Experience Section */}
@@ -77,7 +135,6 @@ const Portfolio = () => {
                       <ChevronDown className="text-blue-400" />
                     </motion.div>
                   </div>
-                  {/* Content */}
                   <AnimatePresence>
                     {expandedExperience === index && (
                       <motion.div
@@ -85,7 +142,19 @@ const Portfolio = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                       >
-                        {/* Detailed content */}
+                        <p className="text-slate-400 mt-4">{exp.company} | {exp.period}</p>
+                        <ul className="list-disc pl-6 mt-4 space-y-2 text-slate-300">
+                          {exp.achievements.map((achievement, i) => (
+                            <li key={i}>{achievement}</li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {exp.tech.map((tech, i) => (
+                            <span key={i} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-blue-400">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -111,7 +180,15 @@ const Portfolio = () => {
                   className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  {/* Project content */}
+                  <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
+                  <p className="text-slate-400 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, i) => (
+                      <span key={i} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-purple-400">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -154,7 +231,22 @@ const Portfolio = () => {
               className="bg-slate-800/90 backdrop-blur-xl rounded-xl p-8 max-w-2xl w-full border border-slate-700/50"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal content */}
+              <h3 className="text-2xl font-bold mb-4">{selectedProject.title}</h3>
+              <p className="text-slate-400 mb-6">{selectedProject.description}</p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {selectedProject.tech.map((tech, i) => (
+                  <span key={i} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-purple-400">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                className="px-6 py-2 bg-blue-400/10 text-blue-400 rounded-lg hover:bg-blue-400/20 transition-colors"
+              >
+                View Project
+              </a>
             </motion.div>
           </motion.div>
         )}
@@ -162,3 +254,5 @@ const Portfolio = () => {
     </div>
   );
 };
+
+export default App;
