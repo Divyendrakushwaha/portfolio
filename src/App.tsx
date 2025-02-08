@@ -3,140 +3,141 @@ import { Github, Linkedin, Code2, Mail, Phone, MapPin, ExternalLink } from 'luci
 
 const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-gray-100">
-      {/* Hero Section */}
-      <section className="bg-teal-600 text-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl font-bold mb-4">Divyendra Kushwaha</h1>
-              <h2 className="text-2xl mb-8">Software Developer | Data Engineer</h2>
-              <div className="space-y-4">
-                <a href="mailto:divyendra.kushwaha@gmail.com" className="flex items-center gap-3 hover:text-teal-200">
-                  <Mail size={20} /> divyendra.kushwaha@gmail.com
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
+      {/* Floating Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-10"></div>
+
+      {/* Main Container */}
+      <div className="container mx-auto px-4 py-12 relative z-10 max-w-6xl">
+        {/* Hero Section */}
+        <section className="mb-24">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+            <div className="flex-1">
+              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Divyendra Kushwaha
+              </h1>
+              <h2 className="text-2xl font-light text-slate-400 mb-8">
+                Software Developer & Data Engineer
+              </h2>
+              <div className="flex flex-wrap gap-6 mb-8">
+                <a href="mailto:divyendra.kushwaha@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                  <Mail size={20} className="flex-shrink-0" />
+                  <span>divyendra.kushwaha@gmail.com</span>
                 </a>
-                <a href="tel:7906369497" className="flex items-center gap-3 hover:text-teal-200">
-                  <Phone size={20} /> 7906369497
+                <a href="tel:7906369497" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                  <Phone size={20} className="flex-shrink-0" />
+                  <span>7906369497</span>
                 </a>
-                <div className="flex items-center gap-3">
-                  <MapPin size={20} /> Gurugram
+                <div className="flex items-center gap-2 text-slate-400">
+                  <MapPin size={20} className="flex-shrink-0" />
+                  <span>Gurugram, India</span>
                 </div>
               </div>
+              <div className="flex gap-4">
+                <a href="https://www.linkedin.com/in/divyendra/" target="_blank" 
+                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Divyendrakushwaha" target="_blank"
+                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
+                  <Github size={20} />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <a href="https://www.linkedin.com/in/divyendra/" target="_blank" 
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 p-4 rounded-lg transition-colors">
-                <Linkedin size={24} />
-                <span className="flex-grow">Connect on LinkedIn</span>
-                <ExternalLink size={16} />
-              </a>
-              <a href="https://github.com/Divyendrakushwaha" target="_blank"
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 p-4 rounded-lg transition-colors">
-                <Github size={24} />
-                <span className="flex-grow">View GitHub Profile</span>
-                <ExternalLink size={16} />
-              </a>
-              <a href="https://leetcode.com/u/princekushwaha49/" target="_blank"
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 p-4 rounded-lg transition-colors">
-                <Code2 size={24} />
-                <span className="flex-grow">LeetCode Profile</span>
-                <ExternalLink size={16} />
-              </a>
+            <div className="w-full lg:w-auto lg:max-w-md space-y-4">
+              <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50">
+                <h3 className="text-lg font-semibold mb-4">Technical Highlights</h3>
+                <ul className="space-y-3 text-slate-300">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    AWS Cloud Architecture
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    Large Language Models (LLMs)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    Big Data Processing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    Machine Learning Systems
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="container mx-auto px-6 py-12">
         {/* Experience Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-teal-600">Experience</h2>
-          <div className="grid gap-6">
-            <ExperienceCard
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
+            Professional Journey
+          </h2>
+          <div className="space-y-8">
+            <TimelineItem
               title="System Analyst"
               company="Contata Solutions"
-              location="Noida, U.P"
-              period="January 2022 - Present"
+              period="2022 - Present"
               achievements={[
-                "Developed AI-driven sales lead system (30% increase)",
-                "Implemented LLM backend on AWS Lambda (50% improvement)",
-                "Optimized models with data scientists (25% efficiency boost)",
-                "Designed microservices architecture (40% reliability increase)",
-                "Managed 2TB datasets with PySpark (30% faster processing)",
-                "Led AWS Glue migration of 120M records (50% faster)"
+                "Led AI-driven sales lead generation system development (30% efficiency gain)",
+                "Architected serverless LLM backend on AWS Lambda",
+                "Optimized PySpark pipelines handling 2TB+ datasets"
               ]}
+              tech={['AWS', 'PySpark', 'LLMs', 'Microservices']}
             />
-            <ExperienceCard
+            <TimelineItem
               title="Junior System Analyst"
               company="Contata Solutions"
-              location="Noida, UP"
-              period="October 2020 - January 2022"
+              period="2020 - 2022"
               achievements={[
-                "Implemented VGG image matching (20% accuracy gain)",
-                "Automated order processing with Selenium & AWS",
-                "Built monitoring dashboards (15% visibility improvement)",
-                "Created Dash-based interactive visualizations"
+                "Implemented computer vision solutions with VGG models",
+                "Automated workflows using Selenium & AWS",
+                "Developed real-time monitoring dashboards"
               ]}
+              tech={['Python', 'AWS', 'Selenium', 'Dash']}
             />
           </div>
         </section>
 
         {/* Projects Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-teal-600">Projects</h2>
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-purple-400 to-purple-400 bg-clip-text text-transparent">
+            Key Projects
+          </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <ProjectCard
-              title="Movie Recommendation System"
-              description="Movie recommendation engine using metadata vectorization and KNN algorithm, achieving 90% accuracy in suggestions"
-              tech={['Python', 'Scikit-learn', 'KNN', 'Vectorization']}
-              link="https://github.com/Divyendrakushwaha/movie-recommendation"
+              title="Intelligent Movie Recommender"
+              description="Advanced recommendation system using hybrid filtering techniques"
+              tech={['Python', 'KNN', 'NLP', 'Vectorization']}
+              link="#"
             />
             <ProjectCard
-              title="Source For All"
-              description="Educational platform connecting 500+ students and teachers for note sharing and doubt resolution"
-              tech={['PHP', 'MySQL', 'PhpMyAdmin', 'HTML/CSS']}
-              link="https://github.com/Divyendrakushwaha/codecollab"
+              title="EdTech Collaboration Platform"
+              description="Scalable education portal connecting 500+ users"
+              tech={['PHP', 'MySQL', 'AWS', 'React']}
+              link="#"
             />
           </div>
         </section>
 
         {/* Skills Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-teal-600">Skills</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <SkillCard
-              title="Programming Languages"
-              skills={['Python', 'Pyspark']}
-            />
-            <SkillCard
-              title="Libraries/Frameworks"
-              skills={['Flask', 'Pandas', 'Pillow', 'Pytorch', 'LLMs']}
-            />
-            <SkillCard
-              title="Tools / Platforms"
-              skills={['AWS', 'GCP', 'Linux', 'Git', 'Selenium']}
-            />
-            <SkillCard
-              title="Databases"
-              skills={['DynamoDB', 'Elasticsearch', 'PostgreSQL']}
-            />
-          </div>
-        </section>
-
-        {/* Education Section */}
-        <section>
-          <h2 className="text-3xl font-bold mb-8 text-teal-600">Education</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="education-card">
-              <h3 className="text-xl font-bold mb-2">KIET Group of Institutions</h3>
-              <p className="text-gray-600 mb-2">B.Tech - Computer Science and Engineering</p>
-              <p className="text-gray-500">August 2016 - September 2020</p>
-            </div>
-            <div className="education-card">
-              <h3 className="text-xl font-bold mb-2">Kendriya Vidyalaya Gorakhpur</h3>
-              <p className="text-gray-600 mb-2">Intermediate Science</p>
-              <p className="text-gray-500">March 2014 - March 2015</p>
-            </div>
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-transparent">
+            Technical Arsenal
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <SkillPill title="Python" color="blue" />
+            <SkillPill title="AWS" color="purple" />
+            <SkillPill title="PySpark" color="green" />
+            <SkillPill title="LLMs" color="pink" />
+            <SkillPill title="Docker" color="blue" />
+            <SkillPill title="TensorFlow" color="purple" />
+            <SkillPill title="Kubernetes" color="green" />
+            <SkillPill title="GraphQL" color="pink" />
           </div>
         </section>
       </div>
@@ -144,47 +145,66 @@ const Portfolio = () => {
   );
 };
 
-const ExperienceCard = ({ title, company, location, period, achievements }) => (
-  <div className="experience-card">
-    <div className="mb-4">
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-600">{company} | {location}</p>
-      <p className="text-gray-500">{period}</p>
+const TimelineItem = ({ title, company, period, achievements, tech }) => (
+  <div className="relative pl-8 border-l-2 border-slate-700 group">
+    <div className="absolute w-4 h-4 bg-blue-400 rounded-full -left-[9px] top-2 ring-4 ring-slate-900"></div>
+    <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 hover:border-blue-400/30 transition-all">
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <div className="flex justify-between items-start mb-4">
+        <p className="text-slate-400">{company}</p>
+        <span className="text-sm text-blue-400">{period}</span>
+      </div>
+      <ul className="space-y-2 mb-4">
+        {achievements.map((achievement, index) => (
+          <li key={index} className="flex items-start gap-2 text-slate-300">
+            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+            {achievement}
+          </li>
+        ))}
+      </ul>
+      <div className="flex flex-wrap gap-2">
+        {tech.map((item, index) => (
+          <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-blue-400">
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
-    <ul className="list-disc pl-6 space-y-2">
-      {achievements.map((achievement, index) => (
-        <li key={index} className="text-gray-700">{achievement}</li>
-      ))}
-    </ul>
   </div>
 );
 
 const ProjectCard = ({ title, description, tech, link }) => (
-  <div className="project-card">
+  <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 hover:border-purple-400/30 transition-all h-full">
     <div className="flex justify-between items-start mb-4">
-      <h3 className="text-xl font-bold">{title}</h3>
-      <a href={link} target="_blank" className="text-teal-600 hover:text-teal-700">
-        <Github size={24} />
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <a href={link} className="text-purple-400 hover:text-purple-300">
+        <Github size={20} />
       </a>
     </div>
-    <p className="text-gray-700 mb-4">{description}</p>
+    <p className="text-slate-400 mb-6">{description}</p>
     <div className="flex flex-wrap gap-2">
       {tech.map((item, index) => (
-        <span key={index} className="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-sm">{item}</span>
+        <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-purple-400">
+          {item}
+        </span>
       ))}
     </div>
   </div>
 );
 
-const SkillCard = ({ title, skills }) => (
-  <div className="skill-card">
-    <h3 className="text-xl font-bold mb-4">{title}</h3>
-    <div className="flex flex-wrap gap-2">
-      {skills.map((skill, index) => (
-        <span key={index} className="bg-teal-50 text-teal-700 px-3 py-1 rounded-full">{skill}</span>
-      ))}
+const SkillPill = ({ title, color }) => {
+  const colorClasses = {
+    blue: 'text-blue-400 border-blue-400/30',
+    purple: 'text-purple-400 border-purple-400/30',
+    green: 'text-green-400 border-green-400/30',
+    pink: 'text-pink-400 border-pink-400/30'
+  };
+
+  return (
+    <div className={`p-3 text-center border rounded-lg backdrop-blur-lg bg-slate-800/50 ${colorClasses[color]} hover:bg-slate-700/30 transition-colors`}>
+      {title}
     </div>
-  </div>
-);
+  );
+};
 
 export default Portfolio;
