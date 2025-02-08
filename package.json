@@ -1,11 +1,11 @@
 {
     "homepage": "https://Divyendrakushwaha.github.io/portfolio",
     "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "predeploy": "npm run build", 
-    "deploy": "gh-pages -d dist"
-  },
+        "dev": "vite",
+        "build": "vite build",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
+    },
     "dependencies": {
         "@tailwindcss/typography": "^0.5.15",
         "autoprefixer": "^10.4.20",
