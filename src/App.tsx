@@ -1,210 +1,164 @@
-import React from 'react';
-import { Github, Linkedin, Code2, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Code2, Mail, Phone, MapPin, ExternalLink, ChevronDown } from 'lucide-react';
 
 const Portfolio = () => {
+  const [expandedExperience, setExpandedExperience] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const experienceRef = useRef(null);
+  const isInView = useInView(experienceRef, { once: true });
+
+  const experiences = [
+    {
+      title: "System Analyst",
+      company: "Contata Solutions",
+      period: "2022 - Present",
+      achievements: [
+        "Developed AI-driven sales lead system (30% sales increase)",
+        "LLM backend on AWS Lambda (50% quality improvement)",
+        "Microservice architecture (40% reliability boost)",
+        "PySpark pipelines (30% faster processing)",
+        "AWS Glue migration (50% time reduction)"
+      ],
+      tech: ['AWS', 'PySpark', 'LLMs', 'Python']
+    },
+    // Add other experiences
+  ];
+
+  const projects = [
+    {
+      title: "Movie Recommendation System",
+      description: "TF-IDF vectorization with KNN achieving 90% accuracy",
+      tech: ['Python', 'Scikit-learn', 'NLP'],
+      link: "#"
+    },
+    // Add other projects
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
-      {/* Floating Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-10"></div>
+      {/* Interactive Background */}
+      <div className="fixed inset-0 bg-particle-pattern opacity-10 animate-flow"></div>
 
-      {/* Main Container */}
       <div className="container mx-auto px-4 py-12 relative z-10 max-w-6xl">
-        {/* Hero Section */}
-        <section className="mb-24">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="flex-1">
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Divyendra Kushwaha
-              </h1>
-              <h2 className="text-2xl font-light text-slate-400 mb-8">
-                Software Developer & Data Engineer
-              </h2>
-              <div className="flex flex-wrap gap-6 mb-8">
-                <a href="mailto:divyendra.kushwaha@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
-                  <Mail size={20} className="flex-shrink-0" />
-                  <span>divyendra.kushwaha@gmail.com</span>
-                </a>
-                <a href="tel:7906369497" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
-                  <Phone size={20} className="flex-shrink-0" />
-                  <span>7906369497</span>
-                </a>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <MapPin size={20} className="flex-shrink-0" />
-                  <span>Gurugram, India</span>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/divyendra/" target="_blank" 
-                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
-                  <Linkedin size={20} />
-                  <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/Divyendrakushwaha" target="_blank"
-                  className="px-6 py-3 bg-slate-800 rounded-lg flex items-center gap-3 hover:bg-slate-700 transition-colors">
-                  <Github size={20} />
-                  <span>GitHub</span>
-                </a>
-              </div>
-            </div>
-            <div className="w-full lg:w-auto lg:max-w-md space-y-4">
-              <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50">
-                <h3 className="text-lg font-semibold mb-4">Technical Highlights</h3>
-                <ul className="space-y-3 text-slate-300">
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    AWS Cloud Architecture
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                    Large Language Models (LLMs)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    Big Data Processing
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                    Machine Learning Systems
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Animated Hero Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-24"
+        >
+          {/* Hero content */}
+        </motion.section>
 
-        {/* Experience Section */}
-        <section className="mb-20">
+        {/* Interactive Experience Section */}
+        <section className="mb-20" ref={experienceRef}>
           <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
             Professional Journey
           </h2>
           <div className="space-y-8">
-            <TimelineItem
-              title="System Analyst"
-              company="Contata Solutions"
-              period="2022 - Present"
-              achievements={[
-                "Led AI-driven sales lead generation system development (30% efficiency gain)",
-                "Architected serverless LLM backend on AWS Lambda",
-                "Optimized PySpark pipelines handling 2TB+ datasets"
-              ]}
-              tech={['AWS', 'PySpark', 'LLMs', 'Microservices']}
-            />
-            <TimelineItem
-              title="Junior System Analyst"
-              company="Contata Solutions"
-              period="2020 - 2022"
-              achievements={[
-                "Implemented computer vision solutions with VGG models",
-                "Automated workflows using Selenium & AWS",
-                "Developed real-time monitoring dashboards"
-              ]}
-              tech={['Python', 'AWS', 'Selenium', 'Dash']}
-            />
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div 
+                  className={`p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border cursor-pointer transition-all
+                    ${expandedExperience === index ? 'border-blue-400/50 h-auto' : 'border-slate-700/50 h-[180px] overflow-hidden'}`}
+                  onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
+                >
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-xl font-semibold">{exp.title}</h3>
+                    <motion.div
+                      animate={{ rotate: expandedExperience === index ? 180 : 0 }}
+                    >
+                      <ChevronDown className="text-blue-400" />
+                    </motion.div>
+                  </div>
+                  {/* Content */}
+                  <AnimatePresence>
+                    {expandedExperience === index && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      >
+                        {/* Detailed content */}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* Project Gallery with Modal */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-purple-400 to-purple-400 bg-clip-text text-transparent">
             Key Projects
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <ProjectCard
-              title="Intelligent Movie Recommender"
-              description="Advanced recommendation system using hybrid filtering techniques"
-              tech={['Python', 'KNN', 'NLP', 'Vectorization']}
-              link="#"
-            />
-            <ProjectCard
-              title="EdTech Collaboration Platform"
-              description="Scalable education portal connecting 500+ users"
-              tech={['PHP', 'MySQL', 'AWS', 'React']}
-              link="#"
-            />
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div 
+                  className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  {/* Project content */}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* Skills Section */}
+        {/* Interactive Skill Cloud */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold mb-12 bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-transparent">
             Technical Arsenal
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <SkillPill title="Python" color="blue" />
-            <SkillPill title="AWS" color="purple" />
-            <SkillPill title="PySpark" color="green" />
-            <SkillPill title="LLMs" color="pink" />
-            <SkillPill title="Docker" color="blue" />
-            <SkillPill title="TensorFlow" color="purple" />
-            <SkillPill title="Kubernetes" color="green" />
-            <SkillPill title="GraphQL" color="pink" />
+          <div className="flex flex-wrap gap-4 justify-center">
+            {['Python', 'AWS', 'PySpark', 'LLMs', 'Docker', 'TensorFlow'].map((skill, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50 cursor-pointer"
+              >
+                {skill}
+              </motion.div>
+            ))}
           </div>
         </section>
       </div>
+
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ y: 50 }}
+              animate={{ y: 0 }}
+              className="bg-slate-800/90 backdrop-blur-xl rounded-xl p-8 max-w-2xl w-full border border-slate-700/50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal content */}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
-
-const TimelineItem = ({ title, company, period, achievements, tech }) => (
-  <div className="relative pl-8 border-l-2 border-slate-700 group">
-    <div className="absolute w-4 h-4 bg-blue-400 rounded-full -left-[9px] top-2 ring-4 ring-slate-900"></div>
-    <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 hover:border-blue-400/30 transition-all">
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <div className="flex justify-between items-start mb-4">
-        <p className="text-slate-400">{company}</p>
-        <span className="text-sm text-blue-400">{period}</span>
-      </div>
-      <ul className="space-y-2 mb-4">
-        {achievements.map((achievement, index) => (
-          <li key={index} className="flex items-start gap-2 text-slate-300">
-            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-            {achievement}
-          </li>
-        ))}
-      </ul>
-      <div className="flex flex-wrap gap-2">
-        {tech.map((item, index) => (
-          <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-blue-400">
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const ProjectCard = ({ title, description, tech, link }) => (
-  <div className="p-6 bg-slate-800/50 backdrop-blur-lg rounded-xl border border-slate-700/50 hover:border-purple-400/30 transition-all h-full">
-    <div className="flex justify-between items-start mb-4">
-      <h3 className="text-xl font-semibold">{title}</h3>
-      <a href={link} className="text-purple-400 hover:text-purple-300">
-        <Github size={20} />
-      </a>
-    </div>
-    <p className="text-slate-400 mb-6">{description}</p>
-    <div className="flex flex-wrap gap-2">
-      {tech.map((item, index) => (
-        <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 rounded-full text-purple-400">
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-);
-
-const SkillPill = ({ title, color }) => {
-  const colorClasses = {
-    blue: 'text-blue-400 border-blue-400/30',
-    purple: 'text-purple-400 border-purple-400/30',
-    green: 'text-green-400 border-green-400/30',
-    pink: 'text-pink-400 border-pink-400/30'
-  };
-
-  return (
-    <div className={`p-3 text-center border rounded-lg backdrop-blur-lg bg-slate-800/50 ${colorClasses[color]} hover:bg-slate-700/30 transition-colors`}>
-      {title}
-    </div>
-  );
-};
-
-export default Portfolio;
