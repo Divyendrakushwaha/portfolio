@@ -5,8 +5,8 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-gray-100">
       {/* Hero Section */}
-      <section className="bg-teal-600 text-white">
-        <div className="container mx-auto px-6 py-20">
+      <section className="bg-teal-600 text-white py-20">
+        <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl font-bold mb-4">Divyendra Kushwaha</h1>
@@ -127,12 +127,12 @@ const Portfolio = () => {
         <section>
           <h2 className="text-3xl font-bold mb-8 text-teal-600">Education</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div className="education-card">
               <h3 className="text-xl font-bold mb-2">KIET Group of Institutions</h3>
               <p className="text-gray-600 mb-2">B.Tech - Computer Science and Engineering</p>
               <p className="text-gray-500">August 2016 - September 2020</p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div className="education-card">
               <h3 className="text-xl font-bold mb-2">Kendriya Vidyalaya Gorakhpur</h3>
               <p className="text-gray-600 mb-2">Intermediate Science</p>
               <p className="text-gray-500">March 2014 - March 2015</p>
@@ -145,7 +145,7 @@ const Portfolio = () => {
 };
 
 const ExperienceCard = ({ title, company, location, period, achievements }) => (
-  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+  <div className="experience-card">
     <div className="mb-4">
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-gray-600">{company} | {location}</p>
@@ -160,7 +160,7 @@ const ExperienceCard = ({ title, company, location, period, achievements }) => (
 );
 
 const ProjectCard = ({ title, description, tech, link }) => (
-  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+  <div className="project-card">
     <div className="flex justify-between items-start mb-4">
       <h3 className="text-xl font-bold">{title}</h3>
       <a href={link} target="_blank" className="text-teal-600 hover:text-teal-700">
@@ -177,7 +177,7 @@ const ProjectCard = ({ title, description, tech, link }) => (
 );
 
 const SkillCard = ({ title, skills }) => (
-  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+  <div className="skill-card">
     <h3 className="text-xl font-bold mb-4">{title}</h3>
     <div className="flex flex-wrap gap-2">
       {skills.map((skill, index) => (
