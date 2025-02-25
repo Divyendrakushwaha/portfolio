@@ -115,13 +115,13 @@ const Portfolio = () => {
 descriptions, ratings) using TF-IDF and computed similarities with K-Nearest Neighbors (KNN),
 achieving 90% accuracy in personalized recommendations."
               tech={['Python', 'KNN', 'NLP', 'Vectorization']}
-              link="#"
+              link="https://github.com/Divyendrakushwaha/movie-recommendation"
             />
             <ProjectCard
-              title="EdTech Collaboration Platform"
-              description="Scalable education portal connecting 500+ users, featuring a chat functionality that allows users to post questions and access collective solutions."
-              tech={['PHP', 'MySQL', 'AWS', 'React']}
-              link="#"
+              title="Article-Based Email Automation"
+              description="Built a RAG-based system to fetch articles, capture screenshots, process data, and generate LLM-based summaries while storing vectorized titles in Elasticsearch for efficient retrieval and context-aware email generation, enhancing automation and reducing manual effort."
+              tech={['Python', 'Elasticsearch', 'OpenAI', 'Langchain']}
+              link="https://github.com/Divyendrakushwaha/"
             />
           </div>
         </section>
